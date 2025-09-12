@@ -1,82 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Personal Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saeedeh Komijani — Portfolio & CV</title>
+  <meta name="description" content="Portfolio and academic CV of Saeedeh Komijani." />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
+    :root {
+      --bg: #0f172a;       /* slate-900 */
+      --panel: #0b1222;    /* deep panel */
+      --text: #e2e8f0;     /* slate-200 */
+      --muted: #94a3b8;    /* slate-400 */
+      --accent: #38bdf8;   /* sky-400 */
+      --chip: #1e293b;     /* slate-800 */
+      --border: #1f2937;   /* gray-800 */
     }
-    header {
-      background: #333;
-      color: #fff;
-      padding: 1rem 0;
-      text-align: center;
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header { position: sticky; top: 0; backdrop-filter: blur(8px); background: rgba(15, 23, 42, 0.7); border-bottom: 1px solid var(--border); z-index: 10; }
+    .nav { max-width: 1100px; margin: 0 auto; display: flex; gap: 24px; align-items: center; padding: 14px 20px; }
+    .nav .name { font-weight: 700; letter-spacing: 0.3px; }
+    .nav .spacer { flex: 1; }
+    .nav a { color: var(--text); opacity: 0.9; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 28px 20px 80px; }
+    .hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; margin-top: 18px; align-items: start; }
+    .card { background: linear-gradient(180deg, var(--panel), #0a1220); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+    h1 { font-size: 42px; line-height: 1.15; margin: 0 0 6px; }
+    .subtitle { color: var(--muted); margin: 0 0 16px; }
+    .contact { display: flex; flex-wrap: wrap; gap: 12px 18px; color: var(--text); }
+    .contact a { color: var(--text); opacity: 0.9; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chip { background: var(--chip); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 999px; font-size: 12px; }
+    section { margin-top: 36px; }
+    h2 { font-size: 22px; margin: 0 0 14px; letter-spacing: 0.2px; }
+    .item { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 14px; border: 1px solid var(--border); border-radius: 14px; margin-bottom: 10px; background: #0b1222; }
+    .item h3 { margin: 0 0 6px; font-size: 17px; }
+    .item .where { color: var(--muted); font-size: 14px; }
+    .item .when { color: var(--muted); font-size: 13px; white-space: nowrap; }
+    ul { margin: 10px 0 0 18px; }
+    li { margin-bottom: 6px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .list { padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: #0b1222; }
+    .publist li, .posterlist li { margin-bottom: 10px; }
+    footer { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+    .btns { display: flex; gap: 10px; margin-top: 16px; }
+    .btn { display: inline-block; background: var(--accent); color: #05121a; border-radius: 10px; padding: 8px 12px; font-weight: 600; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); display: block; margin: 0 auto 14px; }
+    .avatar-wrap { text-align: center; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
     }
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #333;
-      color: #fff;
-      margin-top: 20px;
+    @media print {
+      header, .btns { display: none; }
+      body { background: #fff; color: #000; }
+      .card, .list, .item { border-color: #ddd; background: #fff; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to My Personal Page</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
+    <nav class="nav">
+      <div class="name">Saeedeh Komijani</div>
+      <div class="spacer"></div>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#skills">Skills</a>
+      <a href="#service">Service</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <div class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Hello! I’m [Your Name]. I’m interested in web development, open source, and creating cool projects on GitHub. This is my personal website where I share a little about myself and what I’m working on.</p>
+  <main class="container">
+    <div class="hero">
+      <section class="card">
+        <h1>Saeedeh Komijani</h1>
+        <p class="subtitle">Ph.D. Candidate, Computer Science — UC Davis</p>
+        <p>Researching novel statistical and machine learning approaches for ADHD and related disorders using multimodal data (fMRI, VR eye-tracking, behavioral signals).</p>
+        <div class="chips">
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Neuroimaging (fMRI)</span>
+          <span class="chip">VR & Eye Tracking</span>
+          <span class="chip">Statistics</span>
+          <span class="chip">Computer Systems & Security</span>
+        </div>
+        <div class="btns">
+          <a class="btn" href="#publications">View publications</a>
+          <a class="btn" href="#experience">See experience</a>
+        </div>
+      </section>
+
+      <aside class="card" id="contact">
+        <div class="avatar-wrap">
+          <img src="profile.jpg" alt="Portrait of Saeedeh Komijani" class="avatar" />
+        </div>
+        <h2>Contact</h2>
+        <div class="contact">
+          <div>📧 <a href="mailto:skomijani@ucdavis.edu">skomijani@ucdavis.edu</a></div>
+          <div>📞 <a href="tel:+16506226949">+1&nbsp;650&nbsp;622&nbsp;6949</a></div>
+          <div>📍 Mountain View, CA</div>
+          <div>💻 <a href="https://github.com/saeedehkomijani">github.com/saeedehkomijani</a></div>
+        </div>
+        <div class="chips" style="margin-top:14px">
+          <span class="chip mono">Git • Linux • Docker • VSCode</span>
+          <span class="chip mono">Python • C++ • R</span>
+          <span class="chip mono">TensorFlow • PyTorch • sklearn</span>
+        </div>
+      </aside>
+    </div>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="item">
+        <div>
+          <h3>Ph.D. Candidate — UC Davis</h3>
+          <div class="where">Davis, CA · Research Area: ML & statistical methods for ADHD using multimodal data</div>
+          <ul>
+            <li>Investigate predictors of irritability/impulsivity and attention in ADHD using longitudinal datasets, fMRI, and VR eye-tracking.</li>
+          </ul>
+        </div>
+        <div class="when">Jan 2022 – Present</div>
+      </div>
+
+      <div class="item">
+        <div>
+          <h3>R&amp;D Engineer — Intel Corporation</h3>
+          <div class="where">Hillsboro, OR</div>
+          <ul>
+            <li>Developed and optimized AES variations in a cycle-accurate C++ simulator to improve encryption efficiency.</li>
+            <li>Designed/analyzed diffusion blocks within crypto engines to enhance data entropy.</li>
+            <li>Modified UEFI/OVMF, GRUB, and KVM to boot a para-virtualized Linux guest, optimizing virtualization.</li>
+          </ul>
+        </div>
+        <div class="when">Jun 2015 – May 2019</div>
+      </div>
+
+      <div class="item">
+        <div>
+          <h3>Software Engineer Intern — Intel Corporation</h3>
+          <div class="where">Hillsboro, OR</div>
+          <ul>
+            <li>Designed and implemented an inter-processor communication protocol in a cycle-accurate simulator (C++).</li>
+          </ul>
+        </div>
+        <div class="when">Jun 2014 – Dec 2014</div>
+      </div>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="https://github.com/username/project1">Project 1</a> – A description of your first project.</li>
-        <li><a href="https://github.com/username/project2">Project 2</a> – A description of your second project.</li>
-      </ul>
+    <section id="education">
+      <h2>Education</h2>
+      <div class="grid-2">
+        <div class="item">
+          <div>
+            <h3>Ph.D., Computer Science — UC Davis</h3>
+            <div class="where">Davis, CA</div>
+          </div>
+          <div class="when">2022 – Present</div>
+        </div>
+        <div class="item">
+          <div>
+            <h3>M.S., Computer Science — UC Davis</h3>
+            <div class="where">Davis, CA</div>
+          </div>
+          <div class="when">2012 – 2014</div>
+        </div>
+        <div class="item">
+          <div>
+            <h3>B.S., Computer Engineering — University of Tehran</h3>
+            <div class="where">Tehran, Iran</div>
+          </div>
+          <div class="when">2006 – 2011</div>
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>You can reach me at: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
-      <p>Or find me on <a href="https://github.com/username">GitHub</a>.</p>
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="list">
+        <ul class="publist">
+          <li>V. Harane, D. Ghosal, J. B. Schweitzer, and <strong>S. Komijani</strong> (2025). <em>Prenatal to Childhood Predictors of Irritability and Impulsivity in ADHD: A Longitudinal Machine Learning Study</em>. Under preparation.</li>
+          <li><strong>S. Komijani</strong>, D. Ghosal, J. Geng, and J. B. Schweitzer (2025). <em>Eye-Tracking Insights: Investigating the Link Between Performance and Distractibility in Virtual Reality</em>. Under preparation.</li>
+          <li><strong>S. Komijani</strong>, S. Quynn, D. Ghosal, S. McClure, P. Mukherjee, and J. B. Schweitzer (2025). <em>From Regions to Voxels: Benchmarking fMRI-Based Machine Learning Models</em>. <em>NeuroImage</em>, under review.</li>
+          <li>S. Quynn, <strong>S. Komijani</strong>, D. Ghosal, S. McClure, P. Mukherjee, and J. B. Schweitzer (2025). <em>Modeling Neural Activations of Impulsivity with Transformers Using fMRI Data</em>. AAAI-2026, under review.</li>
+          <li><strong>S. Komijani</strong>, D. Ghosal, M. K. Singh, J. B. Schweitzer, and P. Mukherjee (2025). <em>A Novel Framework to Predict ADHD Symptoms using Irritability in Adolescents and Young Adults with and without ADHD</em>. <em>Frontiers in Psychiatry</em>.</li>
+          <li>M. E. Kounavis, D. Durham, S. Deutsch, and <strong>S. Komijani</strong> (2018). <em>Implicit Data Integrity: Protecting User Data without MACs</em>. ICETE.</li>
+          <li>M. E. Kounavis, D. Durham, S. Deutsch, and <strong>S. Komijani</strong> (2018). <em>There is No Need to Waste Communication Bandwidth on MACs</em>. GIIS.</li>
+          <li>M. E. Kounavis, D. Durham, S. Deutsch, and <strong>S. Komijani</strong> (2017). <em>Non-recursive Computation of the Probability of More Than Two People Having the Same Birthday</em>. IEEE ISCC.</li>
+        </ul>
+      </div>
     </section>
-  </div>
 
-  <footer>
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
-  </footer>
+    <section id="teaching">
+      <h2>Teaching Experience</h2>
+      <div class="list">
+        <ul>
+          <li>Introduction to Programming — UC Davis</li>
+          <li>Discrete Mathematics — UC Davis</li>
+          <li>Theory of Computation — UC Davis; University of Tehran</li>
+          <li>Programming and Problem Solving — UC Davis</li>
+          <li>Probability Models for Computer Science — UC Davis</li>
+          <li>Probability and Statistical Modeling for Computer Science — UC Davis</li>
+          <li>Micro-Architectures — University of Tehran</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="posters">
+      <h2>Poster Presentations</h2>
+      <div class="list">
+        <ul class="posterlist">
+          <li>“A Machine Learning Approach to Predict Hyperactive/Impulsive Symptoms using Irritability”, SFN (2022); APSARD (2023)</li>
+          <li>“Analysis of Irritability using Delgado-Based Brain Imaging Data: A Machine Learning Approach”, Neuro Engineering and Medicine Symposium (UC Davis, 2023)</li>
+          <li>“Irritability and Neural Basis of Reward Processing in ADHD”, Cognitive Neuroscience Society (2024)</li>
+          <li>“VRAM: Investigating Attention in Children with ADHD using VR”, Meaningful eXtended Reality (UC Davis, 2025)</li>
+          <li>“A Machine Learning Approach to Studying Impulsivity and Neural Basis of Reward Processing in ADHD”, Flux (2025)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="patents">
+      <h2>Contributed Patents</h2>
+      <div class="list">
+        <ul>
+          <li>Methods and Arrangements for Implicit Integrity — Pub. US 2019/0042734</li>
+          <li>Cryptographic Cache Lines for a Trusted Execution Environment — Pub. US 2018/0204025</li>
+          <li>Techniques for Compression Memory Coloring — Pub. US 2018/0181337</li>
+          <li>Convolutional Memory Integrity — Pub. US 2017/0285976</li>
+          <li>Methods and Apparatus of Anomalous Memory Access Pattern Detection for TLBs — Pub. US 2019/0228155</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="grid-2">
+        <div class="list">
+          <h3>Programming & Tools</h3>
+          <ul>
+            <li>C++, Python, R, JavaScript (basic), MATLAB (basic)</li>
+            <li>Git, Linux, Docker, VSCode, Jupyter, Virtualization (KVM), UEFI/OVMF</li>
+          </ul>
+        </div>
+        <div class="list">
+          <h3>ML, Data & Statistics</h3>
+          <ul>
+            <li>Scikit-learn, TensorFlow, PyTorch, Pandas, NumPy, Matplotlib, Seaborn</li>
+            <li>R (tidyverse, caret), SPSS (basic), Statistical Modeling, Data Visualization</li>
+            <li>Operating Systems, Computer Architecture, Cryptography (AES)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <h2>Service & Leadership</h2>
+      <div class="list">
+        <ul>
+          <li>Early Childhood Educator — Campus Child Care Center (2019–2022)</li>
+          <li>Research Assistant — UC Davis MIND Institute, ADHD Research Program (2022–Present)</li>
+          <li>STEM Volunteer Educator — Middle &amp; High School Outreach (2022–Present)</li>
+          <li>Graduate Student Mentor — Independent Mentorship (2025–Present)</li>
+          <li>AAAI Paper Reviewer (2025–Present)</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div>Last updated: September 12, 2025</div>
+      <div>Hosted on GitHub Pages · © 2025 Saeedeh Komijani</div>
+    </footer>
+  </main>
 </body>
 </html>
