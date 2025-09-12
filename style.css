@@ -1,0 +1,35 @@
+
+:root{
+  --bg:#0f172a;--panel:#0b1222;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;--chip:#1e293b;--border:#1f2937
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;backdrop-filter:blur(8px);background:rgba(15,23,42,.7);border-bottom:1px solid var(--border);z-index:10}
+.nav{max-width:1100px;margin:0 auto;display:flex;gap:20px;align-items:center;padding:14px 20px}
+.nav .name{font-weight:700;letter-spacing:.3px}
+.nav .spacer{flex:1}
+.nav a{color:var(--text);opacity:.9}
+.container{max-width:1100px;margin:0 auto;padding:28px 20px 80px}
+.card{background:linear-gradient(180deg,var(--panel),#0a1220);border:1px solid var(--border);border-radius:16px;padding:20px}
+h1{font-size:42px;line-height:1.15;margin:0 0 6px}
+.subtitle{color:var(--muted);margin:0 0 16px}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;margin-top:18px;align-items:start}
+.avatar{width:180px;height:180px;border-radius:50%;object-fit:cover;border:2px solid var(--border);display:block;margin:0 auto 12px}
+.avatar-wrap{text-align:center}
+section{margin-top:26px}
+h2{font-size:22px;margin:0 0 14px;letter-spacing:.2px}
+.item{display:grid;grid-template-columns:1fr auto;gap:10px;padding:14px;border:1px solid var(--border);border-radius:14px;margin-bottom:10px;background:#0b1222}
+.item h3{margin:0 0 6px;font-size:17px}
+.item .where{color:var(--muted);font-size:14px}
+.item .when{color:var(--muted);font-size:13px;white-space:nowrap}
+ul{margin:10px 0 0 18px}
+li{margin-bottom:6px}
+.list{padding:14px;border:1px solid var(--border);border-radius:14px;background:#0b1222}
+.grid-1{display:grid;grid-template-columns:1fr;gap:14px}
+.btns{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--accent);color:#05121a;border-radius:10px;padding:8px 12px;font-weight:600}
+footer{margin-top:32px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+@media print{header,.btns{display:none}body{background:#fff;color:#000}.card,.list,.item{border-color:#ddd;background:#fff}}
