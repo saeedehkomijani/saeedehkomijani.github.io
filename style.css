@@ -69,3 +69,17 @@ footer{margin-top:32px;padding-top:18px;border-top:1px solid var(--border);color
   body{background:#fff;color:#000}
   .card,.list,.item{border-color:#ddd;background:#fff}
 }
+
+
+/* Mobile: make the menu button blue and high-contrast */
+@media (max-width: 760px){
+  .menu-toggle{
+    background: var(--accent) !important;   /* bright blue */
+    color: #06131b;                          /* dark text for contrast */
+    border-color: rgba(56,189,248,.6);       /* subtle blue border */
+  }
+  .menu-toggle:hover { filter: brightness(1.05); }
+  .menu-toggle:active { transform: translateY(1px); }
+  .menu-toggle svg rect{ fill: #06131b; }    /* burger lines visible on blue */
+}
+
