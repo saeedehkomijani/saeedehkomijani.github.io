@@ -10,18 +10,26 @@
 <body>
 
   <header>
-    <nav class="nav">
-      <div class="name"><a href="index.html" style="text-decoration:none;color:inherit">Saeedeh Komijani</a></div>
-      <div class="spacer"></div>
-      <a href="publications.html">Publications</a>
-      <a href="experience.html">Experience</a>
-      <a href="education.html">Education</a>
-      <a href="teaching.html">Teaching</a>
-      <a href="skills.html">Skills</a>
-      <a href="service.html">Service</a>
-      <a href="posters.html">Posters</a>
-      <a href="patents.html">Patents</a>
-      <a href="contact.html">Contact</a>
+    <nav class="nav" role="navigation" aria-label="Main">
+      <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit">Saeedeh Komijani</a></div>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="6" width="18" height="2" rx="1" />
+          <rect x="3" y="11" width="18" height="2" rx="1" />
+          <rect x="3" y="16" width="18" height="2" rx="1" />
+        </svg>
+      </button>
+      <div id="menu" class="menu">
+        <a href="publications.html">Publications</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="skills.html">Skills</a>
+        <a href="service.html">Service</a>
+        <a href="posters.html">Posters</a>
+        <a href="patents.html">Patents</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </nav>
   </header>
 
@@ -39,11 +47,11 @@
         <li>Micro-Architectures — University of Tehran</li>
       </ul>
     </div>
-
+    
     <footer>
-      <div>Last updated: September 12, 2025</div>
       <div>Hosted on GitHub Pages · © 2025 Saeedeh Komijani</div>
     </footer>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>
